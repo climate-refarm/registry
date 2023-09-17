@@ -1,1 +1,1 @@
-# registry
+# Climate Refarm Public Registry
