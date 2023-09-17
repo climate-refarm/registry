@@ -17,15 +17,15 @@ class CreditStatus(str, Enum):
 
 class CreditType(str, Enum):
   """Represents a type of credit."""
-  CARBON_OFFSET_AVOIDED = "OFFSET.A"
-  CARBON_OFFSET_REMOVAL = "OFFSET.R"
-  CARBON_OFFSET_MIXED = "OFFSET.M"
+  AVOIDED_TON_CO2 = "1T.A"
+  REMOVAL_TON_CO2 = "1T.R"
+  MIXED_TON_CO2 = "1T.M"
 
 
 class CreditMethodology(str, Enum):
   """The methodology by which this credit was issued and verified."""
   # Our sustainable food procurement methodology
-  CLIMATE_REFARM_SUSTAINABLE_FOOD_PROCUREMENT = "M1"
+  OUR_SUSTAINABLE_FOOD_PROCUREMENT = "M1"
 
 
 class Credit(BaseModel):
