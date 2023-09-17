@@ -3,6 +3,7 @@ import pandas as pd
 import sys, os
 sys.path.extend([".", "..", "../.."])
 from helpers.models.credit import Credit, CreditStatus
+from helpers.utils.paths import projects_folder
 
 
 def check_serial_numbers_are_unique(df: pd.DataFrame):
@@ -42,3 +43,21 @@ def check_all_serial_numbers_retired(df_ledger: pd.DataFrame, serial_numbers: li
   if len(not_retired) > 0:
     print(not_retired.index)
     raise ValueError("Found serial numbers that were not retired")
+
+
+def check_all_projects_have_docs():
+  """Every project should have a `documentation.md` file inside."""
+  projects = os.listdir(projects_folder())
+
+  for project_id in projects:
+    print("Checking:", project_id)
+    assert(os.path.exists(projects_folder(f"{project_id}/documentation.md")))
+
+
+def check_all_projects_have_monitoring():
+  """Every project should have a `monitoring.csv` file."""
+  projects = os.listdir(projects_folder())
+
+  for project_id in projects:
+    print("Checking:", project_id)
+    assert(os.path.exists(projects_folder(f"{project_id}/monitoring.csv")))

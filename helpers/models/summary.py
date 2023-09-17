@@ -13,3 +13,4 @@ class ClimateOffsetPortfolioSummary(BaseModel):
   total_land_restored_ha: float
   total_land_conserved_ha: float
   total_animal_lives_saved: float
+  total_meals_impacted: float
