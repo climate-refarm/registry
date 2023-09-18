@@ -45,6 +45,18 @@ We run a number of automated checks to ensure the following:
 
 Every update to the ledger must pass these validation checks before being submitting and reflected here.
 
+## Development
+
+### Commit Prefixes
+
+Commits to this repository use prefixes to summarize what kind of change they're making:
+- `code` : A code change
+- `project` : A project is being created or updated
+- `issue` : Credits were issued
+- `retire` : Credits were retired
+- `amend` : An error was corrected (e.g a typo in a serial number)
+- `docs` : Documentation update
+
 ## Questions
 
 > [!NOTE]
