@@ -45,7 +45,10 @@ def calculate_project_impact_factors(verbose: bool = False) -> pd.DataFrame:
 
 
 def load_retired_serial_numbers() -> list[str]:
-  """Load all of the serial numbers that have been retired in the portfolio."""
+  """Load all of the serial numbers that have been retired in the portfolio.
+
+  Checks that there are no duplicated retired serial numbers.
+  """
   files = glob.glob(ledger_folder("climate_offset_portfolio/retirements/*.csv"))
   df = pd.concat([pd.read_csv(f, index_col="serial_number") for f in files])
   if df.index.has_duplicates:
@@ -57,11 +60,20 @@ def load_retired_serial_numbers() -> list[str]:
 def write_summary(summary: ClimateOffsetPortfolioSummary):
   """Write the impact summary to a JSON file."""
   with open(ledger_folder("climate_offset_portfolio/summary.json"), "w") as f:
+    print(summary.model_dump())
     json.dump(summary.model_dump(), f, indent=2)
 
 
 def main():
-  """Generates impact results for the Climate Offset Portfolio."""
+  """Generates impact metrics for the Climate Offset Portfolio.
+
+  More information: https://climaterefarm.com/our-approach
+
+  Notes
+  -----
+  This script should be re-run every time we update projects or retirements in
+  the portfolio.
+  """
   # Load the main credit ledger.
   df_main_ledger = pd.read_csv(ledger_folder("main.csv"), index_col="serial_number")
   print(f"Loaded main ledger ({len(df_main_ledger)} entries)")

@@ -9,6 +9,14 @@ from helpers.validation.checks import MINIMAL_MONITORING_COLUMNS, ALLOWED_MONITO
 
 
 if __name__ == "__main__":
+  """Command line utility for creating a new project.
+
+  Usage:
+
+  ```bash
+  python create_project.py --name P00123.USA.NEWPROJECT
+  ```
+  """
   parser = argparse.ArgumentParser(description="Generate a new empty project")
   parser.add_argument("--name", type=str, required=True, help="The project name to use")
   args = parser.parse_args()
