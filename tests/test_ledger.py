@@ -27,3 +27,8 @@ def test_check_serial_numbers_are_unique():
 def test_check_credits_match_model():
   df = pd.read_csv(ledger_folder("main.csv"))
   checks.check_credits_match_model(df)
+
+
+def test_check_credits_have_valid_project():
+  df = pd.read_csv(ledger_folder("main.csv"))
+  checks.check_all_credits_have_valid_project(df)
