@@ -37,7 +37,7 @@ The portfolio ledger is organized by month for convenience. For example, if you 
 
 We maintain a running total of portfolio impact metrics in the `summary.json` file. In addition to our internal performance evaluation, these impact metrics are used calculate the impact of each customer's contribution.
 
-## Verifying the Ledger
+## Verifying Project and Credit Accounting
 
 We run a number of automated checks to ensure that:
 - :white_check_mark: Credits serial numbers are unique
@@ -47,7 +47,7 @@ We run a number of automated checks to ensure that:
 - :white_check_mark: All credits in the Climate Offset Portfolio have been properly `retired` or `pre_retired`
 - :white_check_mark: Credit issuances from each project are less than or equal to emission reductions from that project
 
-Every update to the ledger must pass these validation checks before being merged into `main`.
+:construction: Every update to the ledger must pass these validation checks before being merged into `main`.
 
 ## Development
 
