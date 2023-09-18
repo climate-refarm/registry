@@ -58,6 +58,7 @@ Commits to this repository use prefixes to summarize what kind of change they're
 - `project` : A project is being created or updated
 - `issue` : Credits were issued
 - `retire` : Credits were retired
+- `output` : An output, like the portfolio impact, was updated
 - `amend` : An error was corrected (e.g a typo in a serial number)
 - `docs` : Documentation update
 
