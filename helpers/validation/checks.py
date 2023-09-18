@@ -3,7 +3,7 @@ import pandas as pd
 import sys, os
 sys.path.extend([".", "..", "../.."])
 from helpers.models.credit import Credit, CreditStatus
-from helpers.utils.paths import projects_folder
+from helpers.utils.paths import projects_folder, ledger_folder
 
 
 MINIMAL_MONITORING_COLUMNS = [
@@ -105,3 +105,28 @@ def check_all_projects_have_valid_monitoring():
 
     print("Checking that at least one monitoring period exists")
     assert(len(df) > 0)
+
+
+def check_all_projects_have_unique_ids():
+  projects = os.listdir(projects_folder())
+  assert(len(projects) == len(set(projects)))
+
+
+def check_all_credits_have_valid_project(df_ledger: pd.DataFrame):
+  """Every credit should have a valid project ID attached to it."""
+  project_ids = os.listdir(projects_folder())
+  assert(df_ledger.project_id.isin(project_ids).all())
+
+
+def check_project_issuances_are_feasible():
+  """Make sure that credits aren't over-issued from any project."""
+  df = pd.read_csv(ledger_folder("main.csv"))
+  projects = os.listdir(projects_folder())
+
+  for project_id in projects:
+    print(f"Checking issuances from '{project_id}'")
+
+    df_project = pd.read_csv(projects_folder(f"{project_id}/monitoring.csv"))
+    df_project_credits = df[df.project_id == project_id]
+    issuances_from_project = df_project.total_credits_issued.sum()
+    assert(len(df_project_credits) <= issuances_from_project)
