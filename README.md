@@ -1,5 +1,3 @@
-# :page_with_curl: Climate Refarm Credit Registry
-
 ![Banner image](/docs/banner.jpg)
 
 ## Overview
