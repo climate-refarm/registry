@@ -44,9 +44,9 @@ class CreditType(str, Enum):
   future, we may separate these credit types into subcategories, such as
   reversible or irreversible avoided emissions.
   """
-  AVOIDED_TON_CO2 = "1T.A"
-  REMOVAL_TON_CO2 = "1T.R"
-  MIXED_TON_CO2 = "1T.M"
+  AVOIDED_TON_CO2 = "A"
+  REMOVAL_TON_CO2 = "R"
+  MIXED_TON_CO2 = "M"
 
 
 class CreditMethodology(str, Enum):
