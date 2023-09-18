@@ -1,5 +1,7 @@
 # :page_with_curl: Climate Refarm Credit Registry
 
+![Banner image](/docs/banner.jpg)
+
 ## Overview
 
 This repository tracks the current state of Climate Refarm's projects and credits through a **public ledger**. The goal is to allow anyone to view and audit the lifecycle of each carbon credit.
