@@ -2,11 +2,11 @@
 
 ## Overview
 
-This repository tracks the current state of Climate Refarm's projects and credits through a **public ledger**. This allows anyone to view and audit our projects, as well as the lifecycle of each carbon credit.
+This repository tracks the current state of Climate Refarm's projects and credits through a **public ledger**. The goal is to allow anyone to view and audit the lifecycle of each carbon credit.
 
 ## Terminology
 - **Carbon credit**: A token that represents of `1 ton of CO2` emission reductions or removals. Each carbon credit is uniquely identified by a serial number.
-- **Project**: A project that reduces or removes emissions. Projects periodically *issue* carbon credits based on their measured environmental impact. Each project has a unique ID in this registry.
+- **Project**: A project that reduces or removes emissions. Projects periodically *issue* carbon credits based on their measured environmental impact. Each project has a unique identifier in this registry.
 - **Ledger**: A spreadsheet for tracking carbon credits and their attributes
 
 ## Tracking Projects
@@ -17,10 +17,10 @@ Information about each of our projects can be found in the `projects` folder. Un
 
 ## Tracking Carbon Credits
 
-- When new carbon credits are `issued`, they are added to the main ledger (`ledger/main.csv`)
-- When carbon credits are `retired`, their status is updated in the main ledger
+- When new carbon credits are `issued`, they are added as rows on the main ledger (`ledger/main.csv`)
+- When carbon credits are `retired`, their status is updated on the main ledger
 
-
+Note that in our registry, carbon credits can have a `pre_retired` status. Pre-retirement means that the credit was sold ahead of time based on the projected impact of a project, and is equivalent to selling a carbon credit with a future vintage. When that project's next monitoring period is completed, pre-retired credits are replaced by retired credits. We made the decision to allow pre-retired credits in order to provide vital up-front funding for some of our sustainable food projects.
 
 ## Tracking our Climate Offset Portfolio
 
@@ -46,6 +46,5 @@ Every update to the ledger must pass these validation checks before being submit
 
 ## Questions
 
-{% note %}
-If you have any questions, we're happy to help at [info@climaterefarm.com](mailto:info@climaterefarm.com). If you're a Github user, feel free to open an issue on this repository.
-{% endnote %}
+> [!NOTE]
+> If you have any questions, we're happy to help at [info@climaterefarm.com](mailto:info@climaterefarm.com). If you're a Github user, feel free to open an issue on this repository.
