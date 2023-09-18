@@ -50,6 +50,6 @@ if __name__ == "__main__":
 
     retired_serials.add(sn)
 
-  df_retired_updated = pd.DataFrame({"serial_numbers": sorted(list(retired_serials))})
+  df_retired_updated = pd.DataFrame({"serial_number": sorted(list(retired_serials))})
   df_retired_updated.to_csv(ledger_folder(f"climate_offset_portfolio/retirements/{args.to}.updated.csv"), index=False)
   print("Wrote updated retirements file. Inspect it before renaming!")
