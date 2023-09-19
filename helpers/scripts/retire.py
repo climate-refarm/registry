@@ -1,5 +1,5 @@
 import argparse
-import os
+from datetime import datetime
 import pandas as pd
 
 import sys
@@ -22,12 +22,16 @@ if __name__ == "__main__":
   parser.add_argument("--start", type=int, required=True, help="The start of the serial number range")
   parser.add_argument("--end", type=int, required=True, help="The end of the serial number range")
   parser.add_argument("--to", type=str, required=True, help="A file relative to the retirements folder")
+  parser.add_argument("--status", type=str, required=True, choices=[CreditStatus.retired, CreditStatus.pre_retired], help="What status to assign the credits that are being retired")
   args = parser.parse_args()
 
   if args.start > args.end:
     raise ValueError("Invalid range")
 
   df = pd.read_csv(ledger_folder("main.csv"), index_col="serial_number")
+
+  print("Writing backup main ledger")
+  df.to_csv(ledger_folder("backup.main.csv"))
 
   serial_numbers = [f"CR{n:010d}" for n in range(args.start, args.end + 1)]
 
@@ -53,6 +57,13 @@ if __name__ == "__main__":
 
     retired_serials.add(sn)
 
+    # Update the main ledger.
+    df.loc[sn].status = args.status
+    df.loc[sn].date_retired = str(datetime.utcnow().date())
+
   df_retired_updated = pd.DataFrame({"serial_number": sorted(list(retired_serials))})
   df_retired_updated.to_csv(ledger_folder(f"climate_offset_portfolio/retirements/{args.to}"), index=False)
   print("Wrote a new retirements file. Inspect it before committing!")
+
+  df.to_csv(ledger_folder("main.csv"))
+  print("Wrote updated main ledger")

@@ -50,6 +50,11 @@ def load_retired_serial_numbers() -> list[str]:
   Checks that there are no duplicated retired serial numbers.
   """
   files = glob.glob(ledger_folder("climate_offset_portfolio/retirements/*.csv"))
+
+  for f in files:
+    if "backup" in f:
+      raise ValueError("Found a backup file. Delete it before running this script.")
+
   df = pd.concat([pd.read_csv(f, index_col="serial_number") for f in files])
   if df.index.has_duplicates:
     print(df[df.duplicated()])
