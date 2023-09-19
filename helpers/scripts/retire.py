@@ -34,6 +34,10 @@ if __name__ == "__main__":
   print(f"Retiring credit range '{serial_numbers[0]}' to '{serial_numbers[-1]}'")
 
   df_retired = pd.read_csv(ledger_folder(f"climate_offset_portfolio/retirements/{args.to}"), index_col="serial_number")
+
+  # Write a backup in case we want to roll back the change.
+  df_retired.to_csv(ledger_folder(f"climate_offset_portfolio/retirements/backup.{args.to}"))
+
   retired_serials = set(df_retired.index.to_list())
 
   for sn in serial_numbers:
@@ -50,5 +54,5 @@ if __name__ == "__main__":
     retired_serials.add(sn)
 
   df_retired_updated = pd.DataFrame({"serial_number": sorted(list(retired_serials))})
-  df_retired_updated.to_csv(ledger_folder(f"climate_offset_portfolio/retirements/{args.to}.updated.csv"), index=False)
-  print("Wrote updated retirements file. Inspect it before renaming!")
+  df_retired_updated.to_csv(ledger_folder(f"climate_offset_portfolio/retirements/{args.to}"), index=False)
+  print("Wrote a new retirements file. Inspect it before committing!")
