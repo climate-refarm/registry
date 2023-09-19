@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from enum import Enum
+from typing import Optional
 
 
 class CreditIssuer(str, Enum):
@@ -67,4 +68,4 @@ class Credit(BaseModel):
   methodology: CreditMethodology
 
   date_issued: str
-  date_retired: str
+  date_retired: Optional[str] = None

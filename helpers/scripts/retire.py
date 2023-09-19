@@ -9,7 +9,7 @@ from helpers.utils.paths import ledger_folder
 
 
 if __name__ == "__main__":
-  """Command line utility for retiring credits into the portfolio.
+  """Command line utility for RETIRING credits into the portfolio.
 
   Usage:
 
@@ -30,7 +30,6 @@ if __name__ == "__main__":
   df = pd.read_csv(ledger_folder("main.csv"), index_col="serial_number")
 
   serial_numbers = [f"CR{n:010d}" for n in range(args.start, args.end + 1)]
-  print(serial_numbers)
 
   print(f"Retiring credit range '{serial_numbers[0]}' to '{serial_numbers[-1]}'")
 
