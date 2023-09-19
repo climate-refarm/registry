@@ -1,11 +1,11 @@
 {
-  "updated_at": "2023-09-18T19:41:34.380253Z",
-  "commit_sha": "d6d2bda44ef8a7068f03de44ed92f61d87301f7f",
-  "total_credits_issued": 90.0,
-  "total_emission_reductions_tons_co2": 90.69999999999999,
-  "total_land_use_reduced_ha": 10.980000000000002,
+  "updated_at": "2023-09-19T13:23:15.037857Z",
+  "commit_sha": "786ecbb4fb2437ed69d0b46a4c3ef6579da80210",
+  "total_credits_issued": 110.0,
+  "total_emission_reductions_tons_co2": 111.3315789473684,
+  "total_land_use_reduced_ha": 12.401052631578949,
   "total_land_restored_ha": 0.0,
   "total_land_conserved_ha": 0.0,
-  "total_animal_lives_saved": 2362.0000000000005,
-  "total_meals_impacted": 52000.0
+  "total_animal_lives_saved": 33962.0,
+  "total_meals_impacted": 76000.0
 }
