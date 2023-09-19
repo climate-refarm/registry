@@ -26,6 +26,10 @@ if __name__ == "__main__":
   args = parser.parse_args()
 
   df = pd.read_csv(ledger_folder("main.csv"), index_col="serial_number")
+
+  # Write a backup file in case we want to revert easily.
+  df.to_csv(ledger_folder("backup.main.csv"))
+
   print(f"Highest serial number found is '{df.index.max()}'")
   start = int(df.index.max().replace("CR", "")) + 1
   end = start + args.n
@@ -56,4 +60,4 @@ if __name__ == "__main__":
   print("Updated ledger:")
   print(df)
 
-  df.to_csv(ledger_folder("main.updated.csv"))
+  df.to_csv(ledger_folder("main.csv"))
