@@ -2,4 +2,4 @@ name: Run integrity tests on PRs
 on: [push]
 jobs:
   call-workflow:
-    uses: ./.github/workflows/workflow.yml
+    uses: ./.github/workflows/tests.yml
