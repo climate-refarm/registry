@@ -47,7 +47,7 @@ We run a number of automated checks to ensure that:
 - :white_check_mark: All credits in the Climate Offset Portfolio have been properly `retired` or `pre_retired`
 - :white_check_mark: Credit issuances from each project are less than or equal to emission reductions from that project
 
-:construction: Every update to the ledger must pass these validation checks before being merged into `main`.
+:white_check_mark: Every update to the ledger must pass these validation checks before being merged into `main`.
 
 ## Development
 
